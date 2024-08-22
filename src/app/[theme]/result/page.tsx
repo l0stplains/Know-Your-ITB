@@ -1,12 +1,13 @@
+import Result from "@/components/Result";
+import { CheckProvider } from "@/utils";
 
+export default function ResultProvider({ params }: { params: { theme: string } }) {
 
-export default function Result({ params }: { params: { theme: string } }) {
-
-
+  CheckProvider({params})
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>Ini Result Page-nya Know Your {params.theme}</div>
+    <main className="">
+      <Result theme={params.theme} />
     </main>
   );
 }

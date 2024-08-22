@@ -1,18 +1,12 @@
-import {redirect} from "next/navigation"
-import themeQuestions from "@/libs/Questions";
+import React from 'react'
+import {redirect} from 'next/navigation'
 
-export default function Test({ params }: { params: { theme: string } }) {
+export default function Test() {
 
-  if (!themeQuestions.hasOwnProperty(params.theme)) {
-    redirect("/404")
-  } else {
-    console.log(themeQuestions[params.theme])
-  }
-
+  redirect('/ukm/test/scale')
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>Ini Test Page-nya Know Your {params.theme}</div>
-    </main>
-  );
+    <div>Test</div>
+
+  )
 }
