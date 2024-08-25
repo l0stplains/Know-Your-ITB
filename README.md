@@ -108,6 +108,7 @@ SECRET=your_secret_key
 | Nama        | Peran          |
 |-------------|----------------|
 | Devon Wiraditya Tanumihardja       | Product Manager |
+| Desati Dinda Saraswati       | UI/UX Designer |
 | Aldoy Fauzan Avanza        |  Software Developer (Front-end)    |
 | Ahmad Evander Ruizhi Xavier       |  Software Developer (Front-end)    |
 | Nayla Zahira        |  Software Developer (Front-end)    |
