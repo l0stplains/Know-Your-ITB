@@ -1,77 +1,32 @@
 import React from 'react';
 
-export default function Result({theme}: { theme: string }) { // theme bisa bernilai 'ukm' atau 'hmif', bisa dimanfaatin buat logic milih warna
-  const color = theme === 'ukm' ? '#457082' : '#457082';
+export default function Result({ theme }: { theme: string }) {
+  // theme can be 'ukm' or 'hmif', use it to choose color logic
+  const color = theme === 'ukm' ? '#457082' : '#3c899f';
   return (
     <div>
-    <button style={{ ...styles.button, color: color, borderColor: color }}>
-      <div style={{ ...styles.backArrow, color: color }}>&lt;</div>
-      <div style={styles.text}>Retake Test</div>
-    </button>
-    <div style={styles.container}>
-      <h1 style={styles.title}>Result</h1>
-      <p style={styles.subtitle}>Here are the top 5 units that are the best match for you!</p>
-    </div>
-    <div style={styles.containerresult}>
-      <div style={styles.indexContainer}>
-        <div style={styles.index}>1</div>
+      <button style={{ ...styles.button, color: color, borderColor: color }}>
+        <div style={{ ...styles.backArrow, color: color }}>&lt;</div>
+        <div style={styles.text}>Retake Test</div>
+      </button>
+      <div style={styles.container as React.CSSProperties}>
+        <h1 style={styles.title}>Result</h1>
+        <p style={styles.subtitle}>Here are the top 5 units that are the best match for you!</p>
       </div>
-      <div style={styles.content}>
-        <div style={styles.logo}>Logo</div>
-        <div style={styles.textContainer}>
-          <div style={styles.titleresult}>Lorem Ipsum</div>
-          <a href="#" style={styles.link}>See more about Lorem Ipsum</a>
+      {[1, 2, 3, 4, 5].map((index) => (
+        <div key={index} style={styles.containerresult}>
+          <div style={styles.indexContainer}>
+            <div style={styles.index}>{index}</div>
+          </div>
+          <div style={styles.content}>
+            <div style={styles.logo}>Logo</div>
+            <div style={styles.textContainer as React.CSSProperties}>
+              <div style={styles.titleresult}>Lorem Ipsum</div>
+              <a href="#" style={styles.link}>See more about Lorem Ipsum</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div style={styles.containerresult}>
-      <div style={styles.indexContainer}>
-        <div style={styles.index}>2</div>
-      </div>
-      <div style={styles.content}>
-        <div style={styles.logo}>Logo</div>
-        <div style={styles.textContainer}>
-          <div style={styles.titleresult}>Lorem Ipsum</div>
-          <a href="#" style={styles.link}>See more about Lorem Ipsum</a>
-        </div>
-      </div>
-    </div>
-    <div style={styles.containerresult}>
-      <div style={styles.indexContainer}>
-        <div style={styles.index}>3</div>
-      </div>
-      <div style={styles.content}>
-        <div style={styles.logo}>Logo</div>
-        <div style={styles.textContainer}>
-          <div style={styles.titleresult}>Lorem Ipsum</div>
-          <a href="#" style={styles.link}>See more about Lorem Ipsum</a>
-        </div>
-      </div>
-    </div>
-    <div style={styles.containerresult}>
-      <div style={styles.indexContainer}>
-        <div style={styles.index}>4</div>
-      </div>
-      <div style={styles.content}>
-        <div style={styles.logo}>Logo</div>
-        <div style={styles.textContainer}>
-          <div style={styles.titleresult}>Lorem Ipsum</div>
-          <a href="#" style={styles.link}>See more about Lorem Ipsum</a>
-        </div>
-      </div>
-    </div>
-    <div style={styles.containerresult}>
-      <div style={styles.indexContainer}>
-        <div style={styles.index}>5</div>
-      </div>
-      <div style={styles.content}>
-        <div style={styles.logo}>Logo</div>
-        <div style={styles.textContainer}>
-          <div style={styles.titleresult}>Lorem Ipsum</div>
-          <a href="#" style={styles.link}>See more about Lorem Ipsum</a>
-        </div>
-      </div>
-    </div>
+      ))}
     </div>
   );
 }
