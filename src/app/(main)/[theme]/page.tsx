@@ -9,7 +9,7 @@ export default function WhatsInProvider({params}: {params: {theme: string}}) {
 
   return (
     <div>
-      <WhatsIn theme={params.theme} />
+      <WhatsIn theme={params.theme as 'ukm' | 'hmif'} />
     </div>
 
   )
