@@ -58,4 +58,56 @@ model VerificationToken {
  
   @@id([identifier, token])
 }
- 
+
+model Theme {
+  id String @id @default(cuid())
+  name String
+  questions Question[]
+  communities Community[]
+  primary String?
+  secondary String?
+  accent String?
+  dark Boolean?
+  light Boolean?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Community {
+  id String @id @default(cuid())
+  themeId String
+  name String
+  description String
+  image String
+  theme Theme @relation(fields: [themeId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum QuestionType {
+  MULTIPLE_CHOICE
+  SCALE
+} 
+
+model Question {
+  id String @id @default(cuid())
+  number Int @unique @default(autoincrement())
+  themeId String
+  question String
+  type QuestionType
+  options Option[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  theme Theme @relation(fields: [themeId], references: [id], onDelete: Cascade)
+}
+
+model Option {
+  id String @id @default(cuid())
+  questionId String
+  description String
+  value Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  question Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+}
+
