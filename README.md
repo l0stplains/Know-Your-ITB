@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+# **Know Your ITB**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## **Deskripsi Aplikasi**
+
+**Know Your ITB** adalah sebuah aplikasi berbasis web yang bertujuan untuk membantu mahasiswa baru dalam menemukan Unit Kegiatan Mahasiswa (UKM) yang paling sesuai dengan minat, bakat, dan kepribadian mereka. Selain itu, aplikasi ini juga memberikan opsi untuk mencari tahu tentang divisi-divisi dalam badan Himpunan Mahasiswa Informatika, sehingga pengguna dapat menemukan peran yang paling cocok di organisasi tersebut.
+
+### **Fitur Utama:**
+- **Menu Utama**: Sistem menampilkan menu utama yang memungkinkan pengguna memilih fitur prediksi yang diinginkan, seperti prediksi UKM atau prediksi divisi HMIF.
+- **Penyimpanan Jawaban Sementara**: Sistem menyimpan jawaban pengguna untuk setiap pertanyaan secara sementara, kemudian menampilkan pertanyaan berikutnya.
+- **Proses Prediksi**: Sistem memproses semua jawaban yang diberikan untuk menghasilkan top 5 prediksi sesuai dengan model yang telah ditentukan.
+- **Informasi Detail**: Sistem menampilkan informasi lebih lanjut mengenai top 5 prediksi atau UKM/divisi lainnya berdasarkan pilihan pengguna.
+- **Admin Login dan Dashboard**: Admin dapat masuk ke sistem untuk mengakses dashboard dan mengedit data yang diperlukan untuk pengelolaan aplikasi.
+
+## **Teknologi yang Digunakan**
+
+<div align="center">
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![NextAuth](https://img.shields.io/badge/NextAuth-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+</div>
+
+- **Frontend Framework**: Next.js
+- **Frontend Library**: React.js
+- **Styling**: Tailwind CSS
+- **Bahasa Pemrograman**: TypeScript
+- **ORM**: Prisma
+- **Autentikasi**: NextAuth
+- **Database**: PostgreSQL
+- **Backend Framework**: Python (Flask)
+
+## **Struktur Program**
+
+```plaintext
+|-- prisma/
+|   |-- schema.prisma       # Skema basis data Prisma
+|
+|-- src/
+|   |-- app/                # Halaman Next.js
+|   |-- components/         # Komponen UI Reusable
+|   |-- libs/               # Konfigurasi database, auth, dan utilitas umum
+|   |-- utils/              # Utilitas pembantu
+|   |-- types/              # Interface type untuk TypeScript
+|
+|-- public/                 # Berkas statis (gambar, favicon, dll)
+|
+|
+|-- .env                    # Variabel lingkungan
+|-- package.json            # Daftar dependensi dan skrip
+|-- README.md               # Dokumentasi proyek
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Cara Menjalankan Program**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **1. Instalasi Requirement**
+Pastikan kamu sudah menginstal Node.js, Python, dan PostgreSQL. Lalu, ikuti langkah-langkah berikut:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+# Clone repository
+git clone https://github.com/username/repository.git
 
-## Learn More
+# Masuk ke direktori proyek
+cd nama-proyek
 
-To learn more about Next.js, take a look at the following resources:
+# Instal dependensi frontend
+npm install
+# atau
+yarn install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Migrasi basis data
+npx prisma migrate dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Generate klien Prisma
+npx prisma generate
+```
 
-## Deploy on Vercel
+### **2. Menjalankan Aplikasi**
+Jalankan frontend:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Menjalankan frontend (Next.js)
+npm run dev
+# atau
+yarn dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat frontend aplikasi.
+
+### **3. Konfigurasi .env**
+Tambahkan variabel lingkungan yang diperlukan ke dalam file `.env`. Contoh:
+
+```
+DATABASE_URL="postgresql://user:password@localhost:5432/nama-database"
+NEXTAUTH_URL=http://localhost:3000
+SECRET=your_secret_key
+```
+
+## **Anggota Kelompok**
+
+| Nama        | Peran          |
+|-------------|----------------|
+| Devon Wiraditya Tanumihardja       | Product Manager |
+| Aldoy Fauzan Avanza        |  Software Developer (Front-end)    |
+| Ahmad Evander Ruizhi Xavier       |  Software Developer (Front-end)    |
+| Nayla Zahira        |  Software Developer (Front-end)    |
+| Aryo Bama Wiratama        |  Software Developer (Front-end)    |
+| Refki Alfarizi        |  Software Developer (Back-end)    |
+| Dhafin Faidhulhaq        |  Game Developer (Tester)   |
+| Qodri Azkarayan        |  Data Scientist    |
+| William Andrian Dharma T        |  Data Scientist    |
+
+
+## **Referensi Belajar**
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [NextAuth Documentation](https://next-auth.js.org/getting-started/introduction)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+- [Flask Documentation](https://flask.palletsprojects.com/en/2.0.x/)
+
+---
+
