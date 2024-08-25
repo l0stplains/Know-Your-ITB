@@ -65,10 +65,10 @@ Pastikan kamu sudah menginstal Node.js, Python, dan PostgreSQL. Lalu, ikuti lang
 
 ```bash
 # Clone repository
-git clone https://github.com/username/repository.git
+git clone https://github.com/l0stplains/know-your-itb.git
 
 # Masuk ke direktori proyek
-cd nama-proyek
+cd know-your-itb
 
 # Instal dependensi frontend
 npm install
