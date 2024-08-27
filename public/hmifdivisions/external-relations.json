@@ -1,0 +1,11 @@
+{
+    "title": "External & Relations Divisions",
+    "description": "Here are the divisions in External & Relations.",
+    "components": [
+      { "name": "Extracampus" },
+      { "name": "Intracampus" },
+      { "name": "Alumni Relations" },
+      { "name": "Community Services" }
+    ]
+  }
+  

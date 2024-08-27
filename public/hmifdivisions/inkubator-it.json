@@ -1,0 +1,12 @@
+{
+    "title": "Inkubator IT Divisions",
+    "description": "Here are the divisions in Inkubator IT.",
+    "components": [
+      { "name": "Operation" },
+      { "name": "Marketing" },
+      { "name": "Finance" },
+      { "name": "Human Relations" },
+      { "name": "Technology" }
+    ]
+  }
+  

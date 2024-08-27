@@ -1,0 +1,10 @@
+{
+    "title": "Tech Issues & Exploration Divisions",
+    "description": "Here are the divisions in Tech Issues & Exploration.",
+    "components": [
+      { "name": "Competition and Community" },
+      { "name": "Career Development" },
+      { "name": "Technology Development" }
+    ]
+  }
+  

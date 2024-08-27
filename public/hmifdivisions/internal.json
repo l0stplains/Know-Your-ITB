@@ -1,0 +1,10 @@
+{
+    "title": "Internal Divisions",
+    "description": "Here are the divisions in Internal.",
+    "components": [
+      { "name": "Kinship" },
+      { "name": "Club and Hobbies" },
+      { "name": "Household" }
+    ]
+  }
+  

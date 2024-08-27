@@ -1,0 +1,9 @@
+{
+    "title": "People Divisions",
+    "description": "Here are the divisions in People.",
+    "components": [
+      { "name": "People Development" },
+      { "name": "People Management" }
+    ]
+  }
+  

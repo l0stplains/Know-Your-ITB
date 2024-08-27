@@ -1,0 +1,9 @@
+{
+    "title": "Welfare & Academics Divisions",
+    "description": "Here are the divisions in Welfare & Academics.",
+    "components": [
+      { "name": "Welfare" },
+      { "name": "Academic" }
+    ]
+  }
+  

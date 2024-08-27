@@ -1,32 +1,28 @@
 {
-    "ukm": {
-      "title": "What's in ITB!",
-      "description": "Here are the unit options you can join in ITB:",
-      "texts": [
-        "Lorem Ipsum satu",
-        "Lorem Ipsum dua",
-        "Lorem Ipsum tiga",
-        "Lorem Ipsum empat",
-        "Lorem Ipsum lima",
-        "Lorem Ipsum enam",
-        "Lorem Ipsum tujuh",
-        "Lorem Ipsum delapan",
-        "Lorem Ipsum sembilan"
-      ]
-    },
-    "hmif": {
-      "title": "What's in HMIF!",
-      "description": "Here are the department options you can join in HMIF:",
-      "texts": [
-        "General Secretariat",
-        "Inkubator IT",
-        "External & Relations",
-        "Creative & Branding",
-        "Internal",
-        "Welfare & Academics",
-        "People",
-        "Tech Issues & Exploration"
-      ]
-    }
+  "ukm": {
+    "title": "What's in ITB!",
+    "description": "Here are the unit options you can join in ITB:",
+    "texts": [
+      { "text": "KSEP ITB", "slug": "ksep-itb" },
+      { "text": "TEC ITB", "slug": "tec-itb" },
+      { "text": "8EH Radio ITB", "slug": "8eh-radio-itb" },
+      { "text": "Skhole", "slug": "skhole" },
+      { "text": "ITB Jazz", "slug": "itb-jazz" },
+      { "text": "KMPA Ganesha ITB", "slug": "kmpa-ganesha-itb" }
+    ]
+  },
+  "hmif": {
+    "title": "What's in HMIF!",
+    "description": "Here are the department options you can join in HMIF:",
+    "texts": [
+      { "text": "General Secretariat", "slug": "general-secretariat" },
+      { "text": "Inkubator IT", "slug": "inkubator-it" },
+      { "text": "External & Relations", "slug": "external-relations" },
+      { "text": "Creative & Branding", "slug": "creative-branding" },
+      { "text": "Internal", "slug": "internal" },
+      { "text": "Welfare & Academics", "slug": "welfare-academics" },
+      { "text": "People", "slug": "people" },
+      { "text": "Tech Issues & Exploration", "slug": "tech-issues-exploration" }
+    ]
   }
-  
+}

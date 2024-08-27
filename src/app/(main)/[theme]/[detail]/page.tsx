@@ -1,14 +1,22 @@
-import { CheckProvider } from '@/utils'
-import WhatsInDetail from '@/components/WhatsInDetail'
-import React from 'react'
+import React from 'react';
+import WhatsInDetail from '@/components/WhatsInDetail';
 
-export default function WhatsInDetailProvider({params}: {params: {theme: string}}) {
+interface PageProps {
+  params: {
+    theme: 'ukm' | 'hmif'; // theme parameter
+    detail: string; // detail parameter (mapped to slug in WhatsInDetail)
+  };
+}
 
-  CheckProvider({params})
+const DetailPage: React.FC<PageProps> = ({ params }) => {
+  // Renaming 'detail' to 'slug' to match the WhatsInDetailProps
+  const { theme, detail: slug } = params;
 
   return (
     <div>
-      <WhatsInDetail theme={params.theme} />
+      <WhatsInDetail params={{ theme, slug }} />
     </div>
-  )
-}
+  );
+};
+
+export default DetailPage;

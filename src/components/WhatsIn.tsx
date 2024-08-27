@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface WhatsInProps {
   theme: 'ukm' | 'hmif';
@@ -9,18 +10,22 @@ interface WhatsInProps {
 interface TextsData {
   title: string;
   description: string;
-  texts: string[];
+  texts: { text: string; slug: string }[];
+}
+
+interface Data {
+  [key: string]: TextsData;
 }
 
 const WhatsIn: React.FC<WhatsInProps> = ({ theme }) => {
   const [data, setData] = useState<TextsData | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
-    // Fungsi untuk memuat data dari file JSON
     const fetchData = async () => {
       try {
         const response = await fetch('/ukmhmif.json');
-        const jsonData = await response.json();
+        const jsonData: Data = await response.json();
         setData(jsonData[theme]);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -34,35 +39,44 @@ const WhatsIn: React.FC<WhatsInProps> = ({ theme }) => {
     return <div>Loading...</div>;
   }
 
-  // Judul dan deskripsi sesuai dengan tema
   const { title, description, texts } = data;
-
-  // Tentukan jumlah kotak sesuai dengan tema
   const boxCount = theme === 'ukm' ? 9 : 8;
 
-  // Warna tema
-  const textColor = theme === 'ukm' ? 'text-blue-100' : 'text-green-100';
-  const boxBgColor = theme === 'ukm' ? 'bg-blue-25' : 'bg-green-25';
-  const logoColor = theme === 'ukm' ? 'bg-blue-400' : 'bg-green-400';
-  const textInsideBoxColor = theme === 'ukm' ? 'text-blue-400' : 'text-green-400';
+  // Define colors based on theme
+  const themeColors = {
+    ukm: {
+      textColor: 'text-blue-100',
+      boxBgColor: 'bg-blue-25',
+      logoColor: 'bg-blue-400',
+      textInsideBoxColor: 'text-blue-400',
+    },
+    hmif: {
+      textColor: 'text-green-100',
+      boxBgColor: 'bg-green-25',
+      logoColor: 'bg-green-400',
+      textInsideBoxColor: 'text-green-400',
+    },
+  };
 
-  // Gunakan Tailwind untuk menentukan grid layout
-  const gridClasses = theme === 'ukm' ? 'grid-cols-3 grid-rows-3' : 'grid-cols-4 grid-rows-2';
-  const colGap = theme === 'ukm' ? 'gap-x-8' : 'gap-x-10'; // Jarak antar kolom
-  const rowGap = theme === 'ukm' ? 'gap-y-4' : 'gap-y-6'; // Jarak antar baris
+  const { textColor, boxBgColor, logoColor, textInsideBoxColor } = themeColors[theme];
+
+  const handleClick = (slug: string) => {
+    router.push(`/${theme}/${slug}`);
+  };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-8 px-4">
-      {/* Judul */}
+    <div className="flex flex-col items-center justify-start min-h-[60vh] py-24 px-4">
       <h1 className={`text-3xl font-bold mb-2 ${textColor}`}>{title}</h1>
-      {/* Deskripsi */}
       <p className={`text-xl font-bold mb-6 text-center ${textColor}`}>{description}</p>
-      {/* Grid kotak */}
-      <div className={`grid ${gridClasses} ${colGap} ${rowGap}`}>
-        {texts.slice(0, boxCount).map((text, index) => (
-          <div key={index} className={`flex items-center ${boxBgColor} border border-gray-300 rounded-lg p-4 min-h-[75px]`}>
+      <div className={`grid ${theme === 'ukm' ? 'grid-cols-3 grid-rows-2' : 'grid-cols-4 grid-rows-2'} gap-x-8 gap-y-6`}>
+        {texts.slice(0, boxCount).map((item, index) => (
+          <div
+            key={index}
+            onClick={() => handleClick(item.slug)}
+            className={`flex items-center ${boxBgColor} border border-gray-300 rounded-lg p-8 min-h-[75px] cursor-pointer hover:bg-opacity-70 transition`}
+          >
             <div className={`w-12 h-12 ${logoColor} rounded-full mr-4`}></div>
-            <span className={`font-bold ${textInsideBoxColor}`}>{text}</span>
+            <span className={`font-bold ${textInsideBoxColor}`}>{item.text}</span>
           </div>
         ))}
       </div>
