@@ -14,7 +14,7 @@ export async function GET(req: Request){
     },
   })
 
-  return NextResponse.json({themes})
+  return NextResponse.json({themes}, {status: 200})
 
 }
 
@@ -24,14 +24,26 @@ export async function POST(req: Request){
     return NextResponse.json({error: 'Unauthorized'}, {status: 401})
   }
 
-  const body = await req.json()
-  const theme = await prisma.theme.create({
-    data: {
-      ...body
+  const {name} = await req.json()
+
+  const existingTheme = await prisma.theme.findFirst({
+    where: {
+      name
     }
   })
 
-  return NextResponse.json({theme})
+
+  if(existingTheme){
+    return NextResponse.json({error: 'Theme already exists'}, {status: 400})
+  }
+
+  const theme = await prisma.theme.create({
+    data: {
+      name
+    }
+  })
+
+  return NextResponse.json({theme}, {status: 200})
 }
 
 export async function PUT(req: Request){
@@ -50,7 +62,7 @@ export async function PUT(req: Request){
     }
   })
 
-  return NextResponse.json({theme})
+  return NextResponse.json({theme}, {status: 200})
 }
 
 export async function DELETE(req: Request){
@@ -66,5 +78,5 @@ export async function DELETE(req: Request){
     }
   })
 
-  return NextResponse.json({theme})
+  return NextResponse.json({theme}, {status: 200})
 }

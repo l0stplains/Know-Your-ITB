@@ -1,17 +1,12 @@
-import React from 'react'
+import React from "react";
 
-import { getServerSession } from 'next-auth'
-import {redirect} from 'next/navigation'
+import Home from "@/components/dashboard/Home";
+
+import { prisma } from "@/libs/prisma";
 
 export default async function Dashboard() {
-  const session = await getServerSession()
-  if(!session) {
-    // redirect to sign-in page
-    redirect('/dashboard/sign-in')
-  }
 
+  const themes = await prisma.theme.findMany();
 
-  return (
-    <div>Dashboard</div>
-  )
+  return <Home themes={themes} />;
 }

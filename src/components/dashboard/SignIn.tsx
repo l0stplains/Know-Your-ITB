@@ -33,38 +33,26 @@ export default function SignIn() {
     });
 
     if (!signInData?.ok) {
-      setError("Failed to sign in!");
+      setError("Wrong Password or Email!");
     } else {
       setError(null);
       router.refresh();
-      router.push("/dashboard");
     }
   };
 
   return (
     <div>
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-4/5 flex items-center justify-center">
         <div>
           <form
             className="flex flex-col items-center p-8 rounded-md"
             action=""
             onSubmit={handleSubmit}
           >
-            <div className="mb-4">
-              <Image alt="logo" src="/logo.png" height={50} width={50} />
-            </div>
-            <div className="mb-4 text-xl font-bold">LOGIN</div>
+            <div className="mb-4 text-xl font-bold">SIGN IN</div>
             <div className="flex flex-col items-center mb-4">
               <div className="pb-4">
                 <div className="relative flex flex-row items-center bg-[#EBEBEB] px-4 rounded-xl w-72">
-                  <span className="absolute left-4">
-                    <Image
-                      alt="username"
-                      src="/username.png"
-                      height={15}
-                      width={15}
-                    />
-                  </span>
                   <input
                     type="email"
                     placeholder="Email"
@@ -79,9 +67,6 @@ export default function SignIn() {
 
               <div className="pb-4">
                 <div className="relative flex flex-row items-center bg-[#EBEBEB] px-4 rounded-xl w-72">
-                  <span className="absolute left-4">
-                    <Image alt="pass" src="/pass.png" height={13} width={13} />
-                  </span>
                   <input
                     type="password"
                     name="password"
@@ -103,7 +88,7 @@ export default function SignIn() {
               type="submit"
               className="mt-4 bg-gradient-to-r from-blue-400 to-blue-100 text-white font-bold py-2 px-10 rounded-full cursor-pointer"
             >
-              Login Now
+              Sign in Now
             </button>
           </form>
         </div>

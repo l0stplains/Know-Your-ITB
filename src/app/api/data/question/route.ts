@@ -38,6 +38,7 @@ export async function POST(req: Request) {
     });
     return NextResponse.json({ question });
   } catch (error) {
+    console.log(error);
     return NextResponse.json(
       { message: "Something went wrong when creating the question" },
       { status: 500 }

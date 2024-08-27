@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import SignIn from "@/components/SignIn";
+import SignIn from "@/components/dashboard/SignIn";
 import { redirect } from "next/navigation";
 
 export default async function SignInProvider() {
