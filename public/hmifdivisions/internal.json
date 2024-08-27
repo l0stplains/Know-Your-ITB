@@ -1,10 +1,9 @@
 {
-    "title": "Internal Divisions",
-    "description": "Here are the divisions in Internal.",
-    "components": [
-      { "name": "Kinship" },
-      { "name": "Club and Hobbies" },
-      { "name": "Household" }
-    ]
-  }
-  
+  "title": "What's in Internal Department?",
+  "description": "Here are the division options you can join in Internal department:",
+  "components": [
+    { "name": "KINSHIP" },
+    { "name": "CLUB AND HOBBIES" },
+    { "name": "HOUSEHOLD" }
+  ]
+}

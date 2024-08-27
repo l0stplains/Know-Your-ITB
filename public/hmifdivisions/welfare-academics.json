@@ -1,9 +1,8 @@
 {
-    "title": "Welfare & Academics Divisions",
-    "description": "Here are the divisions in Welfare & Academics.",
-    "components": [
-      { "name": "Welfare" },
-      { "name": "Academic" }
-    ]
-  }
-  
+  "title": "What's in Welfare & Academics Department?",
+  "description": "Here are the division options you can join in Welfare & Academics department:",
+  "components": [
+    { "name": "WELFARE" },
+    { "name": "ACADEMIC" }
+  ]
+}

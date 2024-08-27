@@ -95,7 +95,7 @@ const WhatsInDetail: React.FC<WhatsInDetailProps> = ({ params }) => {
       </div>
 
       <div className="flex flex-col items-center mb-12 mt-2">
-        <div className={`p-6 rounded-full text-center ${titleBoxBgColor}`}>
+        <div className={`p-6 rounded-full border border-gray-300 text-center ${titleBoxBgColor}`}>
           <h1 className={`text-5xl font-bold ${titleTextColor} whitespace-nowrap`}>
             {title}
           </h1>

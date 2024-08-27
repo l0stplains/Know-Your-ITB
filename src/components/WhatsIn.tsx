@@ -40,7 +40,6 @@ const WhatsIn: React.FC<WhatsInProps> = ({ theme }) => {
   }
 
   const { title, description, texts } = data;
-  const boxCount = theme === 'ukm' ? 9 : 8;
 
   // Define colors based on theme
   const themeColors = {
@@ -64,21 +63,36 @@ const WhatsIn: React.FC<WhatsInProps> = ({ theme }) => {
     router.push(`/${theme}/${slug}`);
   };
 
+  // Define the division URL
+  const testUrl = `${theme}/test/scale/`;
+
   return (
-    <div className="flex flex-col items-center justify-start min-h-[60vh] py-24 px-4">
+    <div className="flex flex-col items-center justify-start min-h-[60vh] py-16 px-4">
       <h1 className={`text-3xl font-bold mb-2 ${textColor}`}>{title}</h1>
-      <p className={`text-xl font-bold mb-6 text-center ${textColor}`}>{description}</p>
-      <div className={`grid ${theme === 'ukm' ? 'grid-cols-3 grid-rows-2' : 'grid-cols-4 grid-rows-2'} gap-x-8 gap-y-6`}>
-        {texts.slice(0, boxCount).map((item, index) => (
-          <div
-            key={index}
-            onClick={() => handleClick(item.slug)}
-            className={`flex items-center ${boxBgColor} border border-gray-300 rounded-lg p-8 min-h-[75px] cursor-pointer hover:bg-opacity-70 transition`}
-          >
-            <div className={`w-12 h-12 ${logoColor} rounded-full mr-4`}></div>
-            <span className={`font-bold ${textInsideBoxColor}`}>{item.text}</span>
-          </div>
-        ))}
+      <p className={`text-l font-bold mb-10 text-center ${textColor}`}>{description}</p>
+      <div className="overflow-y-auto h-[calc(150px*2)] w-full px-16 max-w-screen mx-auto">
+        <div className={`grid grid-cols-3 gap-x-8 gap-y-6`}>
+          {texts.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => handleClick(item.slug)}
+              className={`flex items-center ${boxBgColor} border border-gray-300 rounded-lg p-8 min-h-[50px] cursor-pointer hover:bg-opacity-70 transition`}
+            >
+              <div className={`w-16 h-16 ${logoColor} rounded-full mr-6`}></div>
+              <span className={`font-bold text-xl ${textInsideBoxColor}`}>{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Button Section */}
+      <div className="flex justify-center mt-16 mb-16">
+        <button
+          onClick={() => router.push(testUrl)}
+          className={`p-4 rounded-full text-center ${theme === 'ukm' ? 'bg-blue-200 text-blue-25' : 'bg-green-200 text-green-25'} font-semibold text-xl hover:opacity-80 transition w-[200px]`}
+        >
+          Start test!
+        </button>
       </div>
     </div>
   );

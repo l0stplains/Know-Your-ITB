@@ -1,12 +1,12 @@
 {
-    "title": "Inkubator IT Divisions",
-    "description": "Here are the divisions in Inkubator IT.",
+    "title": "What's in Inkubator IT?",
+    "description": "Here are the division options you can join in Inkubator IT department.",
     "components": [
-      { "name": "Operation" },
-      { "name": "Marketing" },
-      { "name": "Finance" },
-      { "name": "Human Relations" },
-      { "name": "Technology" }
+      { "name": "OPERATIONAL" },
+      { "name": "MARKETING" },
+      { "name": "FINANCE" },
+      { "name": "HUMAN RELATIONS" },
+      { "name": "TECHNOLOGY" }
     ]
   }
   
