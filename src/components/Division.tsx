@@ -11,6 +11,7 @@ interface DivisionComponent {
 interface DivisionData {
   title: string;
   description: string;
+  image: string;
   components: DivisionComponent[];
 }
 
@@ -94,13 +95,25 @@ const Division: React.FC<DivisionProps> = ({ theme, slug }) => {
       </div>
 
       <div className="flex flex-wrap items-start justify-center space-x-8">
-        <div className={`w-80 h-72 rounded-xl ${circleBgColor}`}></div> {/* Increased logo size with 4:3 ratio */}
+        <div className="relative w-80 h-72 rounded-xl overflow-hidden">
+          {/* Dummy background logo */}
+          <div className={`absolute inset-0 ${circleBgColor}`}></div>
+          {/* New image on top of the dummy logo */}
+          {data.image && (
+            <img 
+              src={data.image} 
+              alt="Division logo" 
+              className="absolute inset-0 w-full h-full object-cover rounded-xl" 
+            />
+          )}
+        </div>
+
         <div className="flex-grow max-w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
             {data.components.map((component, index) => (
               <div 
                 key={index} 
-                className="p-6 bg-green-25 border border-gray-300 rounded-lg shadow-md flex items-center justify-center hover:bg-opacity-70 transition cursor-pointer"
+                className="px-8 py-6 bg-green-25 border border-gray-300 rounded-lg shadow-md flex items-center justify-center hover:bg-opacity-70 transition cursor-pointer"
               >
                 <h2 className="text-lg text-green-400 font-semibold text-center">{component.name}</h2> {/* Centered text */}
               </div>

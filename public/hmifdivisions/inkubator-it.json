@@ -1,6 +1,7 @@
 {
     "title": "What's in Inkubator IT?",
-    "description": "Here are the division options you can join in Inkubator IT department.",
+    "description": "Here are the division options you can join in Inkubator IT department:",
+    "image": "/logo/inkubator_it.png",
     "components": [
       { "name": "OPERATIONAL" },
       { "name": "MARKETING" },

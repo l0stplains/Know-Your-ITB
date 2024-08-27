@@ -14,7 +14,7 @@ interface WhatsInDetailProps {
 interface TextsData {
   title: string;
   description: string;
-  texts: { text: string; slug: string }[];
+  texts: { text: string; slug: string; image: string }[]; // Include image property
 }
 
 interface DescriptionData {
@@ -66,13 +66,13 @@ const WhatsInDetail: React.FC<WhatsInDetailProps> = ({ params }) => {
       titleBoxBgColor: 'bg-blue-25',
       titleTextColor: 'text-blue-200',
       descriptionTextColor: 'text-blue-100',
-      circleBgColor: 'bg-blue-400'
+      circleBgColor: 'bg-blue-200'
     },
     hmif: {
       titleBoxBgColor: 'bg-green-25',
       titleTextColor: 'text-green-200',
       descriptionTextColor: 'text-green-100',
-      circleBgColor: 'bg-green-400',
+      circleBgColor: 'bg-green-200',
     },
   };
 
@@ -83,7 +83,7 @@ const WhatsInDetail: React.FC<WhatsInDetailProps> = ({ params }) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center pt-16">
-      <div className="absolute top-24 left-2">
+      <div className="absolute top-20 left-2">
         <button
           onClick={() => router.push(backUrl)}
           className={`flex items-center ${descriptionTextColor} hover:underline`}
@@ -95,23 +95,31 @@ const WhatsInDetail: React.FC<WhatsInDetailProps> = ({ params }) => {
       </div>
 
       <div className="flex flex-col items-center mb-12 mt-2">
-        <div className={`p-6 rounded-full border border-gray-300 text-center ${titleBoxBgColor}`}>
+        <div className={`px-16 py-6 rounded-full border border-gray-300 text-center ${titleBoxBgColor}`}>
           <h1 className={`text-5xl font-bold ${titleTextColor} whitespace-nowrap`}>
             {title}
           </h1>
         </div>
       </div>
 
-      <div className="flex items-center space-x-16">
-        <div className={`w-72 h-72 rounded-full ${circleBgColor}`}></div>
-        <div className="max-w-[500px]">
-          <p className={`text-lg font-bold ${descriptionTextColor} whitespace-pre-line`}>
+      <div className="flex items-start space-x-16">
+        <div className={`relative w-80 h-72 rounded-xl overflow-hidden ${circleBgColor}`}>
+          {item && (
+            <img
+              src={item.image}
+              alt={item.text}
+              className="w-full h-full object-cover"
+            />
+          )}
+        </div>
+        <div className="max-w-[400px] flex flex-col">
+          <p className={`text-lg font-bold ${descriptionTextColor} whitespace-pre-line mt-4`}>
             {itemDescription}
           </p>
         </div>
       </div>
 
-      {theme === 'hmif' && (
+      {theme === 'hmif' && slug !== 'senatorial' && (
         <div className="flex justify-center mt-16 mb-16">
           <button
             onClick={() => router.push(divisionUrl)}

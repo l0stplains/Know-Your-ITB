@@ -3,26 +3,28 @@
     "title": "What's in ITB!",
     "description": "Here are the unit options you can join in ITB:",
     "texts": [
-      { "text": "KSEP ITB", "slug": "ksep-itb" },
-      { "text": "TEC ITB", "slug": "tec-itb" },
-      { "text": "8EH Radio ITB", "slug": "8eh-radio-itb" },
-      { "text": "Skhole", "slug": "skhole" },
-      { "text": "ITB Jazz", "slug": "itb-jazz" },
-      { "text": "KMPA Ganesha ITB", "slug": "kmpa-ganesha-itb" }
+      { "text": "KSEP ITB", "slug": "ksep-itb", "image": "/logo/nirmana_akselerasi.png" },
+      { "text": "TEC ITB", "slug": "tec-itb", "image": "/logo/nirmana_akselerasi.png" },
+      { "text": "8EH Radio ITB", "slug": "8eh-radio-itb", "image": "/logo/nirmana_akselerasi.png" },
+      { "text": "Skhole", "slug": "skhole", "image": "/logo/nirmana_akselerasi.png" },
+      { "text": "ITB Jazz", "slug": "itb-jazz", "image": "/logo/nirmana_akselerasi.png" },
+      { "text": "KMPA Ganesha ITB", "slug": "kmpa-ganesha-itb", "image": "/logo/nirmana_akselerasi.png" }
     ]
   },
   "hmif": {
     "title": "What's in HMIF!",
     "description": "Here are the department options you can join in HMIF:",
     "texts": [
-      { "text": "General Secretariat", "slug": "general-secretariat" },
-      { "text": "Inkubator IT", "slug": "inkubator-it" },
-      { "text": "External & Relations", "slug": "external-relations" },
-      { "text": "Creative & Branding", "slug": "creative-branding" },
-      { "text": "Internal", "slug": "internal" },
-      { "text": "Welfare & Academics", "slug": "welfare-academics" },
-      { "text": "People", "slug": "people" },
-      { "text": "Tech Issues & Exploration", "slug": "tech-issues-exploration" }
+      { "text": "General Secretariat", "slug": "general-secretariat", "image": "/logo/general_secretariat.png" },
+      { "text": "Inkubator IT", "slug": "inkubator-it", "image": "/logo/inkubator_it.png" },
+      { "text": "External & Relations", "slug": "external-relations", "image": "/logo/external_relations.png" },
+      { "text": "Creative & Branding", "slug": "creative-branding", "image": "/logo/creative_branding.png" },
+      { "text": "Internal", "slug": "internal", "image": "/logo/internal.png" },
+      { "text": "Welfare & Academics", "slug": "welfare-academics", "image": "/logo/welfare_academics.png" },
+      { "text": "People", "slug": "people", "image": "/logo/people.png" },
+      { "text": "Tech Issues & Exploration", "slug": "tech-issues-exploration", "image": "/logo/tech_issues_explorations.png" },
+      { "text": "Representative & Supervisory Council (DPP)", "slug": "dpp", "image": "/logo/nirmana_akselerasi.png" },
+      { "text": "Senatorial", "slug": "senatorial", "image": "/logo/nirmana_akselerasi.png" }
     ]
   }
 }
