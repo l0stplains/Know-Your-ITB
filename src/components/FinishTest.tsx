@@ -2,11 +2,22 @@
 import React from 'react'
 import { QuestionType } from '@/types/db'
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
 export default function FinishTest({ theme, questions }: {theme:string, questions: QuestionType[] }) {
   // checks if all the question is answered by checking the precense in the local storage, and if not redirect to "/${theme}/test${question.number}"
   // if all the question is answered, then redirect to "/${theme}/result"
   // the code is below
+
+  async function predictData(payload: Record<string, string | number>) {
+    try {
+      const response = await axios.post('/backend/predict', payload)
+      return response.data
+    } catch (error) {
+      console.error(error)
+      return null
+    }
+  }
 
   const router = useRouter()
   if (typeof window === "undefined") {
@@ -24,8 +35,37 @@ export default function FinishTest({ theme, questions }: {theme:string, question
     }
   } else {
     if (typeof window !== "undefined") {
-      // use useRouter to redirect instead of window
-      router.push(`/${theme}/result`)
+      // turns all the question and the answer into an object
+      const payload = questions.reduce<Record<string, string | number>>(
+        (acc, question) => {
+          const data = localStorage.getItem(question.id);
+          if (data && data.length > 1) {
+            if (question.options) {
+              const option = question.options.find(option => option.id === data);
+              if (option) {
+                acc[question.question] = option.description ?? '';
+              }
+            }
+            return acc;
+          }
+          acc[question.question] = parseInt(localStorage.getItem(question.id) ?? '') ?? 0;
+          return acc;
+        },
+        {}
+      );
+
+      // send the object to the backend
+      predictData(payload).then((data) => {
+        if (data) {
+          localStorage.setItem(theme, JSON.stringify(data.results))
+          // delete all the question in the local storage
+          questions.forEach(question => localStorage.removeItem(question.id))
+          router.push(`/${theme}/result`)
+      }
+    })
+      
+
+
     }
   }
 

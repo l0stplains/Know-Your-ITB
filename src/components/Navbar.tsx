@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function Navbar() {
   const params = useParams()
-  const theme = params.theme 
+  const theme = params.theme || 'ukm'
   const bgColor = () =>{
     switch(theme){
       case 'hmif':
@@ -29,7 +29,7 @@ export default function Navbar() {
         <a href="/">
           <img src = "/home.png" className= "h-auto w-[2rem] m-6"/>
         </a>
-        <h1 className="underline"> Previous result</h1>
+        <a href={`/${theme}/result`} className="underline"> Previous result</a>
       </div>
     </div>
   )

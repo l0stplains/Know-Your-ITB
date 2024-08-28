@@ -43,6 +43,10 @@
 |-- prisma/
 |   |-- schema.prisma       # Skema basis data Prisma
 |
+|-- backend/
+|   |-- index.py            # Backend (Flask)
+|   |-- models              # Kumpulan model prediksi
+|
 |-- src/
 |   |-- app/                # Halaman Next.js
 |   |-- components/         # Komponen UI Reusable
@@ -61,7 +65,7 @@
 ## **Cara Menjalankan Program**
 
 ### **1. Instalasi Requirement**
-Pastikan kamu sudah menginstal Node.js, Python, dan PostgreSQL. Lalu, ikuti langkah-langkah berikut:
+Pastikan kamu sudah menginstal Node.js, Python **(3.9<= version < 3.12)**, dan PostgreSQL. Lalu, ikuti langkah-langkah berikut:
 
 ```bash
 # Clone repository
@@ -80,19 +84,28 @@ npx prisma migrate dev
 
 # Generate klien Prisma
 npx prisma generate
+
+# Install pnpm
+npm install -g pnpm
+
+# Install depedensi tersisa
+pnpm install
+
+# Jalankan server
+npm run dev
 ```
 
 ### **2. Menjalankan Aplikasi**
-Jalankan frontend:
+Jalankan frontend dan backend:
 
 ```bash
-# Menjalankan frontend (Next.js)
+# Menjalankan server (Next.js)
 npm run dev
 # atau
 yarn dev
 ```
 
-Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat frontend aplikasi.
+Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat aplikasi.
 
 ### **3. Konfigurasi .env**
 Tambahkan variabel lingkungan yang diperlukan ke dalam file `.env`. Contoh:

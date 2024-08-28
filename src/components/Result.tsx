@@ -1,6 +1,24 @@
+'use client'
+
 import React from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function Result({ theme }: { theme: string }) {
+  const [data, setData] = useState<{ name: string }[]>([]);
+  const router = useRouter();
+  
+  useEffect (() => {
+    // fetch data from local storage
+    const res= localStorage.getItem(theme);
+    if (res) {
+      setData((JSON.parse(res)));
+      console.log(JSON.parse(res));
+    } else {
+      alert("Failed to get result\n\nPlease take the test first");
+      router.push(`/${theme}/test/1`);
+    }
+  } , []);
   // theme can be 'ukm' or 'hmif', use it to choose color logic
   const color = theme === 'ukm' ? '#457082' : '#3c899f';
   return (
@@ -13,16 +31,16 @@ export default function Result({ theme }: { theme: string }) {
         <h1 style={styles.title}>Result</h1>
         <p style={styles.subtitle}>Here are the top 5 units that are the best match for you!</p>
       </div>
-      {[1, 2, 3, 4, 5].map((index) => (
-        <div key={index} style={styles.containerresult}>
+      {data.map((object, index) => (
+        <div key={index + 1} style={styles.containerresult}>
           <div style={styles.indexContainer}>
-            <div style={styles.index}>{index}</div>
+            <div style={styles.index}>{index + 1}</div>
           </div>
           <div style={styles.content}>
             <div style={styles.logo}>Logo</div>
             <div style={styles.textContainer as React.CSSProperties}>
-              <div style={styles.titleresult}>Lorem Ipsum</div>
-              <a href="#" style={styles.link}>See more about Lorem Ipsum</a>
+              <div style={styles.titleresult}>{object.name}</div>
+              <a href="#" style={styles.link}>See more about {object.name}</a>
             </div>
           </div>
         </div>
