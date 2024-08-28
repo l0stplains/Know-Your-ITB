@@ -76,7 +76,7 @@ export default function Test({ theme, questions, question }: { theme: string, qu
       {question.type === "MULTIPLE_CHOICE" ? <TestMultiple theme={theme} question={question}/> : <TestScale theme={theme} question={question}/>}
         
         {question.number != 1 && (
-        <div className={`fixed bottom-36 left-48`}>
+        <div className={`fixed bottom-20 left-32`}>
           <Link href={`/${theme}/test/${question.number - 1}`} className="text-xl font-semibold">
           <SlArrowLeft className="inline-block h-10 w-10 "/>
             {" Previous question"}
@@ -84,7 +84,7 @@ export default function Test({ theme, questions, question }: { theme: string, qu
         </div>
         )}
         {question.number != questions.length && (
-        <div className={`fixed bottom-36 right-48`}>
+        <div className={`fixed bottom-20 right-32`}>
           <Link href={`/${theme}/test/${question.number + 1}`} className="text-xl font-semibold">
             {"Next question "}
             <SlArrowRight className="inline-block h-10 w-10 transform"/>
@@ -92,7 +92,7 @@ export default function Test({ theme, questions, question }: { theme: string, qu
           </div>
         )}
         {question.number === questions.length && (
-        <div className={`fixed bottom-36 right-48`}>
+        <div className={`fixed bottom-20 right-32`}>
           <Link href={`/${theme}/test/finish`} className="text-xl font-semibold">
               {"Finish test"}
             <SlArrowRight className="inline-block h-10 w-10 transform"/>
