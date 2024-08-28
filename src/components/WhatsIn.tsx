@@ -64,7 +64,7 @@ const WhatsIn: React.FC<WhatsInProps> = ({ theme }) => {
   };
 
   // Define the division URL
-  const testUrl = `${theme}/test/scale/`;
+  const testUrl = `${theme}/test/1`;
 
   return (
     <div className="flex flex-col items-center justify-start min-h-[60vh] py-12 px-4">

@@ -99,7 +99,7 @@ export default function Community({communities, theme}: {communities: CommunityT
         <input
           type="text"
           placeholder="Community Name"
-          className="bg-gray-25 p-2 rounded-md w-3/5 shadow-lg p-2"
+          className="bg-gray-25 rounded-md w-3/5 shadow-lg p-2"
           onChange={handleFormChange}
           required
         />

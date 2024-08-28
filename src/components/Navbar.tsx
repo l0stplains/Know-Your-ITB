@@ -12,7 +12,7 @@ export default function Navbar() {
         return 'bg-green-400'
       case 'ukm':
         return 'bg-blue-400'
-      case 'default':
+      default:
         return 'bg-blue-400'
     }
   }
