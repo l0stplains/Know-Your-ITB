@@ -1,10 +1,9 @@
 
-import { getServerSession } from "next-auth";
 import React from "react";
 import SignOutButton from "./SignOutButton";
 
 
-export default async function Navbar({ theme = "default" }: { theme?: string }) {
+export default function Navbar({ theme = "default", session }: { theme?: string, session?: any }) {
 
   //  theme bisa hmif atau ukm, kalau ada di homepage dia default, bisa dimanfaatin buat logic milih warna
   const bgColor = () => {
@@ -15,8 +14,6 @@ export default async function Navbar({ theme = "default" }: { theme?: string }) 
         return "bg-blue-400";
     }
   };
-
-  const session = await getServerSession();
 
   return (
     <div className={`${bgColor()} text-white h-[10vh] flex shadow-xl`}>
