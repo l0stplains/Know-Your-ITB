@@ -45,7 +45,6 @@ const styles = {
   },
   text: {
     fontSize: '3vh',
-    fontFamily: 'Montserrat',
     fontWeight: 'bold',
   },
   container: {
@@ -56,14 +55,12 @@ const styles = {
     fontSize: '4vh',
     color: '#457082',
     margin: '0',
-    fontFamily: 'Montserrat',
     fontWeight: 'bold',
   },
   subtitle: {
     fontSize: '2vh',
     color: '#457082',
     marginTop: '1vh',
-    fontFamily: 'Montserrat',
     fontWeight: 'bold',
   },
   containerresult: {

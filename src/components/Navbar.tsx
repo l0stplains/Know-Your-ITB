@@ -1,14 +1,22 @@
+'use client'
+
+import { useParams } from 'next/navigation'
 import React from 'react'
 
-export default function Navbar({theme = "default"}: {theme?: string}) { //  theme bisa hmif atau ukm, kalau ada di homepage dia default, bisa dimanfaatin buat logic milih warna
+export default function Navbar() {
+  const params = useParams()
+  const theme = params.theme 
   const bgColor = () =>{
     switch(theme){
       case 'hmif':
         return 'bg-green-400'
+      case 'ukm':
+        return 'bg-blue-400'
       case 'default':
         return 'bg-blue-400'
     }
   }
+
 
   return (    
     <div className={`${bgColor()} text-white h-[10vh] flex shadow-xl`}>

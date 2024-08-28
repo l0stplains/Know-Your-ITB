@@ -178,7 +178,7 @@ export default function QuestionDetail({ question, theme }: { question: Question
           className="bg-blue-100 text-white rounded-md px-2 py-1 ml-2"
           type="submit"
         >
-          Add Question
+          Add Option
         </button>
       </form>
         </div>
