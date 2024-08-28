@@ -13,7 +13,7 @@ import os
 # Create Flask App
 app = Flask(__name__)
 
-@app.route('/api/python', methods=['GET'])
+@app.route('/backend/python', methods=['GET'])
 def index():
     return "Hello, World!"
 
