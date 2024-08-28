@@ -3,12 +3,10 @@
 ######## IMPORTS ##########
 ##########################
 from flask import Flask, request, jsonify
-"""
 import joblib
 import pandas as pd
 import numpy as np
 import os
-"""
 
 # Create Flask App
 app = Flask(__name__)
@@ -17,7 +15,6 @@ app = Flask(__name__)
 def index():
     return "Hello, World!"
 
-"""
 # Create API routing call
 @app.route('/api/python/predict', methods=['POST'])
 def predict():
@@ -99,7 +96,7 @@ def predict():
     df = pd.DataFrame(final_features)
     df = df.reindex(columns=features)
 
-    model = joblib.load(os.getcwd() + "\\backend\\ukm.joblib")
+    model = joblib.load(os.getcwd() + "\\api\\ukm.joblib")
     prediction = list(model.predict_proba(df))
     sorted_categories = np.argsort(prediction[3])[:-6:-1]
 
@@ -109,7 +106,6 @@ def predict():
                               "value": float(prediction[3][sorted_categories[i]])})
 
     return jsonify({'results': final_results})
-"""
 
 if __name__ == '__main__':
     app.run(debug=True)
