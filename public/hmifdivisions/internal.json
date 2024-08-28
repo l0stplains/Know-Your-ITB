@@ -1,0 +1,10 @@
+{
+  "title": "What's in Internal Department?",
+  "description": "Here are the division options you can join in Internal department:",
+  "image": "/logo/Internal.png",
+  "components": [
+    { "name": "KINSHIP" },
+    { "name": "CLUB AND HOBBIES" },
+    { "name": "HOUSEHOLD" }
+  ]
+}

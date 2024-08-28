@@ -1,0 +1,9 @@
+{
+  "title": "What's in People Department?",
+  "description": "Here are the division options you can join in People department:",
+  "image": "/logo/people.png",
+  "components": [
+    { "name": "PEOPLE DEVELOPMENT" },
+    { "name": "PEOPLE MANAGEMENT" }
+  ]
+}

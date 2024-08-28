@@ -1,0 +1,11 @@
+{
+  "title": "What's in External & Relations Department?",
+  "description": "Here are the division options you can join in External & Relations department:",
+  "image": "/logo/external_relations.png",
+  "components": [
+    { "name": "EXTRACAMPUS" },
+    { "name": "INTRACAMPUS" },
+    { "name": "ALUMNI RELATIONS" },
+    { "name": "COMMUNITY SERVICE" }
+  ]
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import WhatsIn from '@/components/WhatsIn'
 import { CheckProvider } from '@/utils'
 
