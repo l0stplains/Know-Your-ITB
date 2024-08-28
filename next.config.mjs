@@ -7,10 +7,10 @@ const nextConfig = {
         destination:
           process.env.NODE_ENV === 'development'
             ? 'http://127.0.0.1:5328/backend/:path*'
-            : '/backend/:path*',
+            : '/backend/',
       },
     ]
   },
 }
 
-export default nextConfig
+module.exports = nextConfig
