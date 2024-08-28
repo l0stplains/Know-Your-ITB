@@ -96,7 +96,7 @@ def predict():
     df = pd.DataFrame(final_features)
     df = df.reindex(columns=features)
 
-    model = joblib.load(os.getcwd() + "\\src\\backend\\ukm.joblib")
+    model = joblib.load(os.getcwd() + "\\backend\\ukm.joblib")
     prediction = list(model.predict_proba(df))
     sorted_categories = np.argsort(prediction[3])[:-6:-1]
 
