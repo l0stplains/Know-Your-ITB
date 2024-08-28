@@ -10,7 +10,7 @@ export default function FinishTest({ theme, questions }: {theme:string, question
 
   const router = useRouter()
   if (typeof window === "undefined") {
-    return <div>Can't get the result because browser is not supported</div>
+    return <div>Cant get the result because browser is not supported</div>
   }
   const isAllAnswered = questions.every(question => localStorage.getItem(question.number.toString()))
   if (!isAllAnswered) {
