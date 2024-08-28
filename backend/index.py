@@ -11,6 +11,9 @@ import os
 # Create Flask App
 app = Flask(__name__)
 
+@app.route('/backend/', methods=['GET'])
+def index():
+    return "Hello, World!"
 
 # Create API routing call
 @app.route('/backend/predict', methods=['POST'])

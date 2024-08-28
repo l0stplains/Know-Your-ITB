@@ -32,7 +32,7 @@ export default function TestScale({ theme, question}: { theme: string, question:
 
   return (
     <div className="">
-      <form action="" className="flex flex-row justify-center mx-96">
+      <form action="" className="flex flex-row justify-center mx-96 text-center">
         <div
           className={`${colorClass.Text100} flex content-center text-sm`}
         >
