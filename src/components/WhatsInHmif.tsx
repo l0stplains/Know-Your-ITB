@@ -17,7 +17,7 @@ interface Data {
   [key: string]: TextsData;
 }
 
-const WhatsIn: React.FC<WhatsInProps> = ({ theme }) => {
+const WhatsInHmif: React.FC<WhatsInProps> = ({ theme }) => {
   const [data, setData] = useState<TextsData | null>(null);
   const router = useRouter();
 
@@ -111,4 +111,4 @@ const WhatsIn: React.FC<WhatsInProps> = ({ theme }) => {
   );
 };
 
-export default WhatsIn;
+export default WhatsInHmif;

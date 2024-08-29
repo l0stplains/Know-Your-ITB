@@ -110,7 +110,7 @@ def predict():
     model = joblib.load(os.path.join(os.getcwd(), "api", "ukm.joblib"))
 
     # Make predictions
-    prediction = model.predict_proba(result_array)
+    prediction = list(model.predict_proba(result_array))
     sorted_categories = np.argsort(prediction[3])[:-6:-1]
 
     final_results = []
