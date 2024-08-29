@@ -10,12 +10,12 @@ import os
 # Create Flask App
 app = Flask(__name__)
 
-@app.route('/api/python', methods=['GET'])
+@app.route('/api/', methods=['GET'])
 def index():
     return "Hello, World!"
 
 # Create API routing call
-@app.route('/api/python/predict', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 def predict():
     features = ['Seberapa tertarik anda ke bidang kebudayaan',
                 'Apakah anda lebih tertarik ke budaya lokal atau luar',

@@ -13,7 +13,6 @@ export default function Result({ theme }: { theme: string }) {
     const res= localStorage.getItem(theme);
     if (res) {
       setData((JSON.parse(res)));
-      console.log(JSON.parse(res));
     } else {
       alert("Failed to get result\n\nPlease take the test first");
       router.push(`/${theme}/test/1`);

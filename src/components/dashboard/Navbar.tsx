@@ -1,9 +1,10 @@
-
+'use client'
 import React from "react";
 import SignOutButton from "./SignOutButton";
+import { usePathname } from "next/navigation";
 
 
-export default function Navbar({ theme = "default", session }: { theme?: string, session?: any }) {
+export default function Navbar({ theme = "default"}: { theme?: string }) {
 
   //  theme bisa hmif atau ukm, kalau ada di homepage dia default, bisa dimanfaatin buat logic milih warna
   const bgColor = () => {
@@ -14,6 +15,8 @@ export default function Navbar({ theme = "default", session }: { theme?: string,
         return "bg-blue-400";
     }
   };
+
+  const path = usePathname();
 
   return (
     <div className={`${bgColor()} text-white h-[10vh] flex shadow-xl`}>
@@ -30,7 +33,7 @@ export default function Navbar({ theme = "default", session }: { theme?: string,
         <a href="/">
           <img src="/home.png" className="h-auto w-[2rem] m-6" />
         </a>
-        {session && <SignOutButton />}
+        {path != "/dashboard/sign-in" && <SignOutButton />}
       </div>
     </div>
   );

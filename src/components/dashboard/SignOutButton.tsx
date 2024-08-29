@@ -10,8 +10,6 @@ export default function SignOutButton() {
         <button
           onClick={async () => {
             const res = await signOut();
-            console.log(res);
-            router.push("/");
           }}
           className="bg-blue-500 text-white px-4 py-2 rounded-md"
         >
