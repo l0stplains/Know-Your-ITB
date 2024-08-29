@@ -4,7 +4,6 @@
 ##########################
 from flask import Flask, request, jsonify
 import joblib
-import pandas as pd
 import numpy as np
 import os
 
@@ -93,11 +92,25 @@ def predict():
         else:
             final_features.append(0)
 
-    df = pd.DataFrame(final_features)
-    df = df.reindex(columns=features)
+    # Assuming final_features is a list or array-like structure
+    final_features_array = np.array(final_features)
 
-    model = joblib.load(os.getcwd() + "\\api\\ukm.joblib")
-    prediction = list(model.predict_proba(df))
+    # Create a new array with the correct number of columns (matching 'features')
+    # and fill it with zeros
+    result_array = np.zeros((final_features_array.shape[0], len(features)))
+
+    # For each feature in 'features', find its index in final_features (if present)
+    # and copy the corresponding column to result_array
+    for i, feature in enumerate(features):
+        if feature in final_features:
+            col_index = final_features.index(feature)
+            result_array[:, i] = final_features_array[:, col_index]
+
+    # Load the model
+    model = joblib.load(os.path.join(os.getcwd(), "api", "ukm.joblib"))
+
+    # Make predictions
+    prediction = model.predict_proba(result_array)
     sorted_categories = np.argsort(prediction[3])[:-6:-1]
 
     final_results = []

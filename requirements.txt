@@ -1,5 +1,4 @@
 numpy==1.24.3
 Flask==3.0.3
-pandas==2.2.2
 joblib==1.4.2
-
+xgboost-cpu

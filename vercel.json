@@ -3,5 +3,15 @@
         "api/*.py": {
             "excludeFiles": "{.next,*.cache,node_modules,public,app}/**"
         }
-    }
+    },
+    "rewrites": [
+      {
+        "source": "/api/auth/:match*",
+        "destination": "/endpoint/auth/:match*"
+      },
+      {
+        "source": "/api/data/:match*",
+        "destination": "/endpoint/data/:match*"
+      }
+    ]
 }

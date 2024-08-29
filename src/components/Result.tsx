@@ -25,7 +25,7 @@ export default function Result({ theme }: { theme: string }) {
     <div>
       <button style={{ ...styles.button, color: color, borderColor: color }}>
         <div style={{ ...styles.backArrow, color: color }}>&lt;</div>
-        <div style={styles.text}>Retake Test</div>
+        <a href={`/${theme}/test/1`} style={styles.text}>Retake Test</a>
       </button>
       <div style={styles.container as React.CSSProperties}>
         <h1 style={styles.title}>Result</h1>
