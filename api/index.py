@@ -95,30 +95,20 @@ def predict():
     # Assuming final_features is a list or array-like structure
     final_features_array = np.array(final_features)
 
-    # Create a new array with the correct number of columns (matching 'features')
-    # and fill it with zeros
-    result_array = np.zeros((final_features_array.shape[0], len(features)))
-
-    # For each feature in 'features', find its index in final_features (if present)
-    # and copy the corresponding column to result_array
-    for i, feature in enumerate(features):
-        if feature in final_features:
-            col_index = final_features.index(feature)
-            result_array[:, i] = final_features_array[:, col_index]
-
     # Load the model
     model = joblib.load(os.path.join(os.getcwd(), "api", "ukm.joblib"))
 
     # Make predictions
-    prediction = list(model.predict_proba(result_array))
-    sorted_categories = np.argsort(prediction[3])[:-6:-1]
+    prediction = list(model.predict_proba([final_features_array]))
+    sorted_categories = np.argsort(prediction[0])[:-6:-1]
 
     final_results = []
     for i in range(5):
         final_results.append({"name": classes[sorted_categories[i]],
-                              "value": float(prediction[3][sorted_categories[i]])})
+                              "value": float(prediction[0][sorted_categories[i]])})
+        
 
-    return jsonify({'results': final_results})
+    return jsonify({'results': final_results}) 
 
 if __name__ == '__main__':
     app.run(debug=True)
