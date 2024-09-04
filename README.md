@@ -65,7 +65,7 @@
 ## **Cara Menjalankan Program**
 
 ### **1. Instalasi Requirement**
-Pastikan kamu sudah menginstal Node.js, Python **(3.9<= version < 3.12)**, dan PostgreSQL. Lalu, ikuti langkah-langkah berikut:
+Pastikan kamu sudah menginstal Node.js, Python **(Python haruslah memenuhi ketentuan 3.9 <= version < 3.12)**, dan PostgreSQL. Lalu, ikuti langkah-langkah berikut:
 
 ```bash
 # Clone repository
@@ -77,9 +77,9 @@ cd know-your-itb
 # Instal dependensi frontend
 npm install
 # atau
-yarn install
+pnpm install
 
-# Migrasi basis data
+# Migrasi basis data jika belum ada file migration
 npx prisma migrate dev
 
 # Generate klien Prisma
@@ -91,7 +91,7 @@ npm install -g pnpm
 # Install depedensi tersisa
 pnpm install
 
-# Jalankan server
+# Jalankan server juga backend
 npm run dev
 ```
 
@@ -99,10 +99,11 @@ npm run dev
 Jalankan frontend dan backend:
 
 ```bash
-# Menjalankan server (Next.js)
+# Menjalankan front end dan juga back end
 npm run dev
-# atau
-yarn dev
+
+# Menjalankan front end saja (beberapa fitur tidak akan berjalan)
+npx next dev
 ```
 
 Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat aplikasi.
