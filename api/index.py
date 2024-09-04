@@ -96,7 +96,7 @@ def predict():
     final_features_array = np.array(final_features)
 
     # Load the model
-    model = joblib.load(os.path.join(os.getcwd(), "api", "ukm.joblib"))
+    model = joblib.load(os.path.join(os.getcwd(), "api", "newmodel.joblib"))
 
     # Make predictions
     prediction = list(model.predict_proba([final_features_array]))
