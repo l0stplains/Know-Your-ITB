@@ -11,7 +11,7 @@ export default function FinishTest({ theme, questions }: {theme:string, question
 
   async function predictData(payload: Record<string, string | number>) {
     try {
-      const response = await axios.post('/api/predict', payload)
+      const response = await axios.post('/api/predict', payload, { headers: {theme: theme}})
       return response.data
     } catch (error) {
       console.error(error)

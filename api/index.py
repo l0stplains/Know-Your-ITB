@@ -17,6 +17,60 @@ def index():
 # Create API routing call
 @app.route('/api/predict', methods=['POST'])
 def predict():
+    theme = request.headers.get('theme')
+    if theme == 'ukm':
+        feat_data = request.json
+        return predictUKM(feat_data)
+    elif theme == 'hmif':
+        feat_data = request.json
+        return predictHMIF(feat_data)
+    else:
+        return jsonify({'error': 'Invalid theme'})
+
+def predictHMIF(feat_data):
+    scoring_metrics = {"General Secretariat": 0,
+                   "Creative & Branding": 0,
+                   "Tech Issues & Exploration": 0,
+                   "Welfare & Academics": 0,
+                   "External & Relations": 0,
+                   "Internal": 0,
+                   "People": 0,
+                   "Inkubator IT": 0,
+                   "Representative & Supervisory Council (DPP)": 0}
+
+    question_score = { "Kamu lebih suka People work atau Technical work?": [[7, 5, 2, 7, 10, 10, 10, 4, 6], [4, 2, 10, 4, 2, 2, 2, 10, 3]],
+                        "Kamu suka creative work?": [[3, 10, 5, 6, 7, 6, 6, 4, 2], [6, 1, 2, 4, 4, 4, 4, 4, 3]],
+                        "Kamu suka kegiatan di belakang meja atau ketemu banyak orang?": [[5, 3, 8, 4, 1, 1, 1, 7, 4], [6, 7, 3, 7, 8, 8, 10, 4, 5]],
+                        "Kamu suka academic related atau non-academic y/n": [[6, 3, 10, 5, 2, 4, 2, 10, 3], [6, 7, 2, 5, 7, 6, 7, 2, 7]],
+                        "Kamu suka public speaking?": [[8, 9, 5, 6, 10, 7, 8, 4, 5], [2, 1, 5, 4, 0, 3, 2, 6, 5]],
+                        "Kamu mau serius atau have fun?": [[7, 1, 8, 6, 4, 3, 4, 7, 5], [3, 9, 2, 4, 6, 7, 6, 3, 5]]}
+    
+    for question in feat_data:
+        if question in question_score:
+            val = feat_data[question] / 5
+            if feat_data[question] == 'y':
+                score([i * val for i in question_score[question][0]], scoring_metrics)
+            else:
+                score([i * (1 - val) for i in question_score[question][1]], scoring_metrics)
+
+    sorted_score = sorted(scoring_metrics.items(),key=lambda x:x[1],reverse=True)[:5]
+
+    final_results = []
+    for res in sorted_score:
+        final_results.append({"name": res[0],
+                              "value": res[1]})
+        
+    return jsonify({'results': final_results}) 
+
+
+def score(added, metric):
+    i = 0
+    for key in metric:
+        metric[key] += added[i]
+        i += 1
+
+
+def predictUKM(feat_data):
     features = ['Seberapa tertarik anda ke bidang kebudayaan',
                 'Apakah anda lebih tertarik ke budaya lokal atau luar',
                 'Anda lebih suka beraktifitas di luar ruangan',
@@ -52,12 +106,12 @@ def predict():
                'Studi Teater Mahasiswa (STEMA)', 'APRES!', 'UKM Keagamaan',
                'UKM Olahraga',
                'Korps Sukarela Palang Merah Indonesia Institut Teknologi Bandung',
-               'Gajah Ngomik ITB', 'Genshiken',
-               'Kelompok Studi Ekonomi dan Pasar Modal ITB (KSEP)', 'Aksantara ITB',
+               'Gajah Ngomik ITB', 'Genshiken ITB',
+               'Kelompok Studi Ekonomi dan Pasar Modal (KSEP) ITB', 'Aksantara ITB',
                'Ganesha Model United Nations Club', 'Pramuka ITB', 'AIESEC in ITB',
                'KOKESMA ITB (Koperasi Kesejahteraan Mahasiswa ITB)', 'Pelita Muda ITB',
-               'Techno Entrepreneur Club ITB',
-               'Keluarga Mahasiswa Pecinta Alam Ganesha', 'Unit Robotika ITB (URO)',
+               'Techno Entrepreneur Club (TEC) ITB',
+               'Keluarga Mahasiswa Pecinta Alam Ganesha Institut Teknologi Bandung (KMPA Ganesha ITB)', 'Unit Robotika ITB',
                'Resimen Mahasiswa Mahawarman Batalyon I/ITB', 'U-Green ITB',
                'Unit Otomotif Rakata ITB', 'Solve It ITB',
                'Amateur Radio Club – ARC ITB',
@@ -66,9 +120,8 @@ def predict():
                'Institut Sosial Humaniora Tiang Bendera – ISH TiBen ITB',
                'Liga Film Mahasiswa (LFM)', 'Radio Kampus ITB', '8EH Radio ITB',
                'Pers Mahasiswa ITB', 'Boulevard ITB',
-               'Ganesha Interactive Media (GIM)', 'Cerberus']
+               'Ganesha Interactive Media (GIM) ITB', 'Cerberus']
 
-    feat_data = request.json
 
     final_features = []
     for i in range(len(features)):
