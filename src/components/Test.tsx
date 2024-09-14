@@ -19,7 +19,7 @@ export default function Test({ theme, questions, question }: { theme: string, qu
       <h1
         className={`${
           colorClass.Bg200 + " " + colorClass.Text25
-        } font-bold text-3xl text-center content-center py-5`}
+        } font-bold text-3xl max-lg:text-xl max-sm:text-lg text-center content-center py-5`}
       >
         Find your perfect fit {colorClass.typeofTest} in ITB!
       </h1>
@@ -65,9 +65,9 @@ export default function Test({ theme, questions, question }: { theme: string, qu
         <div
           className={`${
             colorClass.Bg50 + " " + colorClass.Text25
-          } p-2 mt-16 mb-4 mx-96 content-center`}
+          } p-2 mt-16 mb-4 mx-auto max-w-[660px] content-center`}
         >
-          <h2 className="font-semibold text-center text-xl">
+          <h2 className="font-semibold text-center text-xl max-lg:text-lg max-md:text-base max-sm:text-sm">
             {question.number}. {question.question}
           </h2>
         </div>
@@ -76,26 +76,26 @@ export default function Test({ theme, questions, question }: { theme: string, qu
       {question.type === "MULTIPLE_CHOICE" ? <TestMultiple theme={theme} question={question}/> : <TestScale theme={theme} question={question}/>}
         
         {question.number != 1 && (
-        <div className={`fixed bottom-20 left-32`}>
-          <Link href={`/${theme}/test/${question.number - 1}`} className="text-xl font-semibold">
-          <SlArrowLeft className="inline-block h-10 w-10 "/>
+        <div className={`fixed bottom-20 left-32 max-md:bottom-16 max-md:left-12`}>
+          <Link href={`/${theme}/test/${question.number - 1}`} className="text-xl max-lg:text-lg max-md:text-base max-sm:text-sm font-semibold">
+          <SlArrowLeft className="inline-block h-10 w-10 max-md:h-6 max-md:w-6"/>
             {" Previous question"}
           </Link>
         </div>
         )}
         {question.number != questions.length && (
-        <div className={`fixed bottom-20 right-32`}>
-          <Link href={`/${theme}/test/${question.number + 1}`} className="text-xl font-semibold">
+        <div className={`fixed bottom-20 right-32 max-md:bottom-16 max-md:right-12`}>
+          <Link href={`/${theme}/test/${question.number + 1}`} className="text-xl max-lg:text-lg max-md:text-base max-sm:text-sm font-semibold">
             {"Next question "}
-            <SlArrowRight className="inline-block h-10 w-10 transform"/>
+            <SlArrowRight className="inline-block h-10 w-10 max-md:h-6 max-md:w-6 transform"/>
           </Link>
           </div>
         )}
         {question.number === questions.length && (
-        <div className={`fixed bottom-20 right-32`}>
-          <Link href={`/${theme}/test/finish`} className="text-xl font-semibold">
+        <div className={`fixed bottom-20 right-32 max-md:bottom-16 max-md:right-12`}>
+          <Link href={`/${theme}/test/finish`} className="text-xl max-lg:text-lg max-md:text-base max-sm:text-sm font-semibold">
               {"Finish test"}
-            <SlArrowRight className="inline-block h-10 w-10 transform"/>
+            <SlArrowRight className="inline-block h-10 w-10 max-md:h-6 max-md:w-6 transform"/>
           </Link>
           </div>
         )}

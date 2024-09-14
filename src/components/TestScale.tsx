@@ -32,18 +32,18 @@ export default function TestScale({ theme, question}: { theme: string, question:
 
   return (
     <div className="">
-      <form action="" className="flex flex-row justify-center mx-96 text-center">
+      <form action="" className="flex flex-row justify-center mx-auto text-center">
         <div
           className={`${colorClass.Text100} flex content-center text-sm`}
         >
-          <label className="flex justify-center items-center flex-col">
+          <label className="flex justify-center items-center flex-col max-md:text-xs">
             <input
               id={(question.options && question.options[0].id) || '1'}
               value={1}
               name="scale"
               type="radio"
               onChange={handleChange}
-              className={`appearance-none mb-3 mt-4 mx-8 bg-green w-24 h-24 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
+              className={`appearance-none mb-3 mt-4 mx-8 max-lg:mx-6 max-md:mx-4 bg-green w-24 h-24 max-lg:w-20 max-lg:h-20 max-md:w-18 max-md:h-18 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
               checked={saveData === "1"}
             />
             {(question.options && question.options[0].description) || "Sangat tidak"}
@@ -59,7 +59,7 @@ export default function TestScale({ theme, question}: { theme: string, question:
               name="scale"
               type="radio"
               onChange={handleChange}
-              className={`appearance-none mb-3 mx-8 bg-green w-16 h-16 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
+              className={`appearance-none mb-3 mx-8 max-lg:mx-6 max-md:mx-4 bg-green w-16 h-16 max-lg:w-12 max-lg:h-12 max-md:w-10 max-md:h-10 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
               checked={saveData === "2"}
             />
           </label>
@@ -74,7 +74,7 @@ export default function TestScale({ theme, question}: { theme: string, question:
               name="scale"
               type="radio"
               onChange={handleChange}
-              className={`appearance-none mb-3 mx-8 bg-green w-12 h-12 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
+              className={`appearance-none mb-3 mx-8 max-lg:mx-6 max-md:mx-4 bg-green w-12 h-12 max-lg:w-8 max-lg:h-8 max-md:w-6 max-md:h-6 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
               checked={saveData === "3"}
             />
           </label>
@@ -89,7 +89,7 @@ export default function TestScale({ theme, question}: { theme: string, question:
               name="scale"
               type="radio"
               onChange={handleChange}
-              className={`appearance-none mb-3 mx-8 bg-green w-16 h-16 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
+              className={`appearance-none mb-3 mx-8 max-lg:mx-6 max-md:mx-4 bg-green w-16 h-16 max-lg:w-12 max-lg:h-12 max-md:w-10 max-md:h-10 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
               checked={saveData === "4"}
             />
           </label>
@@ -98,14 +98,14 @@ export default function TestScale({ theme, question}: { theme: string, question:
         <div
           className={`${colorClass.Text100} flex content-center text-sm`}
         >
-          <label className="flex justify-center items-center flex-col">
+          <label className="flex justify-center items-center flex-col max-md:text-xs">
             <input
               id={(question.options && question.options[question.options.length - 1].id) || '5'}
               value={5}
               name="scale"
               type="radio"
               onChange={handleChange}
-              className={`appearance-none mb-3 mt-4 mx-8 bg-green w-24 h-24 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
+              className={`appearance-none mb-3 mt-4 mx-8 max-lg:mx-6 max-md:mx-4 bg-green w-24 h-24 max-lg:w-20 max-lg:h-20 max-md:w-18 max-md:h-18 border-3 rounded-full ${colorClass.Border100} ${colorClass.Checked100}`}
               checked={saveData === "5"}
             />
             {(question.options && question.options[question.options.length - 1].description) || "Sangat iya"}

@@ -41,17 +41,17 @@ export default function TestMultiple({ theme, question}: { theme: string, questi
       <form action="">
         {question.options && question.options.map((option) => (
         <div
-          className={`${colorClass.Text100} flex mx-96 content-center text-xl font-semibold my-4`}
+          className={`${colorClass.Text100} flex mx-96 max-lg:mx-auto content-center text-xl max-md:text-base font-semibold my-4`}
           key={option.id}
         >
-          <label className="flex justify-center items-center">
+          <label className="flex justify-center items-center max-lg:mx-20">
             <input
               id={option.id}
               value={1}
               name="multiple"
               type="radio"
               onChange={handleChange}
-              className={`mr-4 appearance-none bg-green w-7 h-7 border-3 rounded-sm ${colorClass.Border100} ${colorClass.Checked100}`}
+              className={`mr-4 appearance-none bg-green w-7 h-7 max-md:w-4 max-md:h-4 border-3 rounded-sm ${colorClass.Border100} ${colorClass.Checked100}`}
               checked={saveData == option.id}
             />
             {option.description}

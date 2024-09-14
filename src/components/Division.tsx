@@ -95,7 +95,7 @@ const Division: React.FC<DivisionProps> = ({ theme, slug }) => {
       </div>
 
       <div className="flex flex-wrap items-start justify-center space-x-8">
-        <div className="relative w-80 h-72 rounded-xl overflow-hidden">
+        <div className="relative w-80 h-72 rounded-xl overflow-hidde mb-4 ">
           {/* Dummy background logo */}
           <div className={`absolute inset-0 ${circleBgColor}`}></div>
           {/* New image on top of the dummy logo */}

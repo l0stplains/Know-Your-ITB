@@ -55,12 +55,13 @@ const WhatsInUkm: React.FC<WhatsInProps> = ({ theme }) => {
     <div className="flex flex-col items-center justify-start min-h-[60vh] py-12 px-4">
       <h1 className={`text-3xl font-bold mb-2 ${textColor}`}>{"What's in ITB!"}</h1>
       <p className={`text-l font-bold mb-10 text-center ${textColor}`}>{"Here are the unit options you can join in ITB:"}</p>
-      <div className="relative overflow-y-auto h-[calc(170px*2)] w-full px-16 max-w-screen mx-auto">
-        <div className={`grid grid-cols-3 gap-x-8 gap-y-6`}>
+      <div className="relative overflow-y-auto h-[46vh] w-full max-md:px-2 px-16 max-w-screen mx-auto">
+        <div className={`grid grid-cols-6 gap-x-8 gap-y-6 max-md:gap-x-4 max-md:gap-y-3`}>
           {data && data['communities'].map((item: any) => (
             <a 
               href={`/ukm/${item.id}`}
               key={item.id}
+              className='col-span-2 max-md:col-span-3'
             >
             <div
               className={`relative flex items-center ${boxBgColor} border border-gray-300 rounded-lg p-4 cursor-pointer hover:bg-opacity-70 transition`}
@@ -77,7 +78,7 @@ const WhatsInUkm: React.FC<WhatsInProps> = ({ theme }) => {
               </div>
               <div className="ml-20 flex-1 flex items-center"> {/* Ensures text aligns properly */}
                 <div className="flex flex-col justify-center h-full">
-                  <span className={`font-bold text-xl ${textInsideBoxColor}`}>{item.name}</span>
+                  <span className={`font-bold text-xl max-md:text-sm max-sm:text-xs ${textInsideBoxColor}`}>{item.name}</span>
                 </div>
               </div>
             </div>

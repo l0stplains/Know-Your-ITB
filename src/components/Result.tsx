@@ -112,8 +112,11 @@ export default function Result({ theme }: { theme: string }) {
       alignItems: "center",
       backgroundColor: "white",
       borderRadius: "10px",
-      padding: "1vh 20vh",
-      marginBottom: "2vh",
+      padding: "1vh",
+      maxWidth: "80%",
+      margin: "2vh",
+      marginLeft: "auto",
+      marginRight: "auto",
     },
     indexContainer: {
       display: "flex",

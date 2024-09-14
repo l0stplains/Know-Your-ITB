@@ -77,14 +77,14 @@ const WhatsInDetailUkm: React.FC<WhatsInDetailProps> = ({ params }) => {
 
       <div className="flex flex-col items-center mb-12 mt-2">
         <div className={`px-16 py-6 rounded-full border border-gray-300 text-center ${titleBoxBgColor}`}>
-          <h1 className={`text-5xl font-bold ${titleTextColor} whitespace-nowrap`}>
+          <h1 className={`text-5xl max-md:text-xl max-sm:text-lg font-bold ${titleTextColor} mx-12`}>
             {data.name}
           </h1>
         </div>
       </div>
 
-      <div className="flex items-start space-x-16">
-        <div className={`relative w-80 h-72 rounded-xl overflow-hidden ${circleBgColor}`}>
+      <div className="flex items-start space-x-16 max-md:space-x-0 max-md:flex-col max-md:items-center mx-12">
+        <div className={`relative w-80 h-72 max-md:w-40 max-md:h-36 rounded-xl overflow-hidden ${circleBgColor}`}>
           {data && (
             <img
               src={data.image}
@@ -94,7 +94,7 @@ const WhatsInDetailUkm: React.FC<WhatsInDetailProps> = ({ params }) => {
           )}
         </div>
         <div className="max-w-[400px] flex flex-col">
-          <p className={`text-lg font-bold ${descriptionTextColor} whitespace-pre-line mt-4`}>
+          <p className={`text-lg max-md:text-base max-sm:text-sm font-bold ${descriptionTextColor} whitespace-pre-line mt-4`}>
             {data.description}
           </p>
         </div>
